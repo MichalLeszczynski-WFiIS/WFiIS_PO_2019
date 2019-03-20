@@ -35,7 +35,6 @@
 // nalezy wgrac do UPEL.
 
 #include "Main.h"
-
 int main()
 {
    Samochod::DefaultColor("Czerwony");

@@ -17,6 +17,7 @@
  
 #include "MaszynaStanow.h"
 #include "StanyBazowe.h"
+#include "Stan.h"
 #include <iostream>
 
 int main()

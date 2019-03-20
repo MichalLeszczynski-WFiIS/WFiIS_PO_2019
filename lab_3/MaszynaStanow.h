@@ -6,9 +6,18 @@ class MaszynaStanow {
 public:
     MaszynaStanow(): m_counter(0) {}
 
-    void operator+=(Stan* stan)
+    ~MaszynaStanow()
     {
+        for(auto item: m_listaStanow)
+        {
+            delete item;
+        }
+    }
+    void operator+=(Stan* stan)
+    { 
+       stan->maszyna = this;
         m_listaStanow.push_back(stan);
+        m_max_counter++;
     }
     void start()
     {
@@ -29,13 +38,20 @@ public:
     {
         --m_counter;
     }
-
+ 
 
     friend std::ostream &operator<<(std::ostream &ostr, const MaszynaStanow& m);
 
-private:
 std::vector<Stan*> m_listaStanow; 
+
+unsigned int getCounter()
+{
+    return m_max_counter;
+}
+
+private:
 unsigned int m_counter;
+unsigned int m_max_counter;
 };
 
 std::ostream &operator<<(std::ostream &ostr, const MaszynaStanow& m)
@@ -48,6 +64,15 @@ std::ostream &operator<<(std::ostream &ostr, const MaszynaStanow& m)
             ostr<< m.m_listaStanow[i]->nazwa() << " ";
         
     }
-  //  ostr<<std::endl;
+  
     return ostr;
 }
+
+
+
+void Podsumowanie::operator()() {
+		std::cout << "Podsumowanie" <<std::endl;
+		for(unsigned int i = 0;i < maszyna->m_listaStanow.size(); i++)
+			maszyna->m_listaStanow[i]->podsumowanie();
+		
+	}  

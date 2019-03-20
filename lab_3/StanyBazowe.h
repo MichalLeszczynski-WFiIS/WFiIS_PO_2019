@@ -56,6 +56,6 @@ public:
 	}
 	
 	virtual void podsumowanie() const {
-		return;
+		return ;
 	};
 };
