@@ -1,29 +1,21 @@
 #pragma once
 #include <iostream>
-#include "Samochod.h"
+#include "Car.h"
 
-
-class Mercedes: public Samochod {
+class Mercedes: public Car {
 public:
-Mercedes(std::string paliwo, int moc, int pojemnosc) : _paliwo(paliwo), _moc(moc), _pojemnosc(pojemnosc)
- {
-     _kolor = Samochod::_color;
- }
+Mercedes() {}
+virtual std::string TypeInfo() const override{return "Mercedes A";}
 
+virtual std::string ColorInfo() const override{return "Red";}
 
+virtual std::string EngineFuelInfo() const override{return "ON";}
 
-private:
-std::string _kolor;
-std::string _paliwo;
-int _moc;
-int _pojemnosc;
+virtual std::string EngineCapInfo() const override{return "1598 [cm^3]";}
+
+virtual std::string EnginePowInfo() const override{return "65 [kW]";}
+
+virtual std::string GpsInfo() const override {return "M/Garmin/No.000.000\n";}
 
 };
 
-std::ostream operator<< (std::ostream &ostr, const Mercedes& mercedes)
-{
-    ostr << "[INFO] Mercedes A" << std::endl;
-    ostr << "[INFO] Mercedes A" << std::endl;
-    ostr << "[INFO] Mercedes A" << std::endl;
-
-}
