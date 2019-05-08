@@ -1,16 +1,21 @@
 #pragma once
 #include <iostream>
-
-class Number;
+#include "Number.h"
 
 class OutOfRange {
 public:
 
-OutOfRange(std::vector<Number*>& num_container, Number num): m_num_container(num_container), m_num(num) {}
-void clear(int i) const
+OutOfRange(Number& num): m_num(num) {}
+
+~OutOfRange() 
 {
-    delete m_num_container[i];
+          for(int i = 0; i < get_count(); i++)
+    {
+        std::cout<< "Destroying number " <<  Number::s_num_container[i]->get_num() << std::endl;
+        delete Number::s_num_container[i];
+    }
 }
+
 
 Number& get_num() const
 {
@@ -19,13 +24,12 @@ Number& get_num() const
 
 int get_count() const 
 {
-    return m_num_container.size();
+    return Number::s_num_container.size();
 }
 
 
 
 private:
-std::vector<Number*>& m_num_container;
 Number& m_num;
 
 };

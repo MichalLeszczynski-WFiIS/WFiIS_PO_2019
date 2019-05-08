@@ -25,8 +25,8 @@ Number* Number::Factory(std::string name, double number)
     }
     else
     {
-        delete num;
-        throw OutOfRange(s_num_container, Number(name, number));
+        s_num_container.push_back(num);
+        throw OutOfRange( *num);
     }
 
 }

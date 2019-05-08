@@ -31,12 +31,12 @@ std::string get_name() const
 static double get_low();
 static double get_high();
 
+static std::vector<Number*> s_num_container;
 
 private:
 
 static double s_low;
 static double s_high;
-static std::vector<Number*> s_num_container;
 std::string m_name;
 double m_number;
 

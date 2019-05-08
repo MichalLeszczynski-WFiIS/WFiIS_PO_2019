@@ -28,7 +28,7 @@ int main ()
 
 		std::cout << "END OF NUMBERS" << std::endl;
 	}
-	catch (const OutOfRange exception)
+	catch (const OutOfRange& exception)
 	{
 		std::cout << "Huston we've got problem" << std::endl;
 		std::cout << exception << std::endl;                  // Number named: highest has value 8.3 which is outside of the allowed range: [1, 6]
