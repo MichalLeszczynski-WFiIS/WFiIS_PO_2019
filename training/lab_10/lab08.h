@@ -1,0 +1,1 @@
+#include "ObiektMiotajacy.h"
